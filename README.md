@@ -1,4 +1,4 @@
-# Horizontal-Tabs-Zen
+# Zen Horizontal Tabs
 Horizontal tabs for zen browser
 
 * Follow these instructions to make a userChrome.css file
