@@ -1,0 +1,262 @@
+@media not (-moz-bool-pref: "zen.tabs.vertical") {
+  .zen-workspace-tabs-section {
+    flex-direction: row !important;
+  }
+
+  #zen-sidebar-top-buttons {
+    order: 2 !important;
+  }
+
+  #zen-workspaces-button {
+    display: flex !important;
+  }
+  #navigator-toolbox {
+    flex-direction: column !important;
+    padding-bottom: 0 !important;
+    #nav-bar {
+      order: 3 !important;
+      margin-top: 7px !important;
+    }
+    #tabbrowser-tabs {
+      position: relative !important;
+      display: flex !important;
+      #zen-tabs-wrapper {
+        max-height: 42px !important;
+        height: 40px !important;
+        width: 100% !important;
+        #zen-browser-tabs-container {
+          height: 40px !important;
+        }
+      }
+    }
+  }
+
+  #zen-browser-tabs-container {
+    display: flex !important;
+    #vertical-pinned-tabs-container {
+      display: none !important;
+    }
+  }
+
+  #scrollbutton-up {
+    display: none !important;
+  }
+
+  #scrollbutton-down {
+    display: none !important;
+  }
+
+  /*tmp*/
+
+  tab {
+    display: flex !important;
+    visibility: visible !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 150px !important;
+    width: auto;
+    container-name: tab !important;
+    container-type: inline-size !important; /* Ensures container queries work */
+
+    &[selected] {
+      flex: 1 1 150px !important;
+    }
+
+    .tab-content {
+      display: flex !important;
+    }
+
+    .tab-close-button {
+      min-width: 24px !important;
+      height: 24px !important;
+      padding-left: 5px !important;
+    }
+
+    .tab-icon-image {
+      margin-right: 5px !important;
+    }
+  }
+
+  /* Corrected container query */
+  @container tab (max-width: 53px) {
+    tab:not([zen-essential]) {
+      min-width: 36px !important;
+      width: 36px !important;
+      flex: 1 1 36px !important;
+
+      .tab-background {
+        width: 36px !important;
+      }
+
+      .tab-content {
+        width: 36px !important;
+
+        .tab-icon-stack {
+          width: min-content !important;
+        }
+
+        .tab-label-container {
+          display: none !important;
+        }
+
+        .tab-close-button,
+        .tab-reset-button {
+          display: none !important;
+        }
+      }
+
+      &[selected]:hover {
+        .tab-icon-image {
+          display: none !important;
+        }
+
+        &:not([pinned]) {
+          .tab-close-button {
+            display: flex !important;
+          }
+        }
+
+        &[pinned] {
+          .tab-reset-button {
+            display: flex !important;
+          }
+        }
+      }
+    }
+  }
+
+  /* Corrected container query */
+  @container width (max-width: 500px) {
+    .tab-icon-image {
+      display: none !important; /* Hides the close button when the tab width is < 50px */
+    }
+  }
+
+  @media not (-moz-bool-pref: "zen.tabs.vertical") {
+    #zen-essentials-container {
+      height: 36px !important;
+      max-width: 36px !important;
+      flex: 1 1 36px !important;
+    }
+  }
+
+  .tabbrowser-tab[zen-essential="true"] {
+    order: 0 !important;
+    overflow: visible !important;
+    margin: 0 2px 0 2px !important;
+    min-height: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    width: 36px !important;
+    max-height: 36px !important;
+    max-width: 36px !important;
+    flex: auto !important;
+    .tab-stack {
+      height: 36px !important;
+      .tab-background {
+        height: 36px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .tab-content {
+        height: 36px !important;
+        .tab-icon-image {
+          margin-left: 2.5px !important;
+          margin-right: 2.5px !important;
+        }
+      }
+    }
+    &:last-of-type {
+      margin-right: 4px !important;
+      &:after {
+        content: "";
+        background-color: #888;
+        height: 90%;
+        width: 1px;
+        border-radius: 360px;
+        position: absolute;
+        top: 5% !important;
+        right: -4px;
+      }
+    }
+  }
+  /* Add pinned tab seporator */
+  .tabbrowser-tab[pinned="true"]:not([zen-essential]) {
+    overflow: visible !important;
+    margin-right: 4px !important;
+    &:after {
+      content: "";
+      background-color: #888;
+      height: 90%;
+      width: 1px;
+      border-radius: 360px;
+      position: absolute;
+      top: 5% !important;
+      right: -4px;
+    }
+  }
+
+  /*Hide closed tabs... */
+  tab:not([fadein]) {
+    display: none !important;
+  }
+  /* Hide empty tab */
+  tab[zen-empty-tab] {
+    display: none !important;
+  }
+
+  /* URL bar positioning */
+  #nav-bar {
+    width: 87% !important;
+    margin-left: 50px !important;
+    #urlbar:not([breakout-extend]) {
+      #urlbar-background {
+        border-radius: 360px !important;
+      }
+    }
+  }
+
+  #zen-sidebar-top-buttons {
+    display: block !important;
+    width: 100vw !important;
+    margin-top: 0 !important;
+    max-height: 0 !important;
+    min-height: 0 !important;
+    position: relative !important;
+    top: 33% !important;
+    #zen-sidebar-top-buttons-customization-target {
+      width: 100vw !important;
+      display: flex !important;
+      justify-content: flex-start !important;
+      #zen-sidebar-top-buttons-separator {
+        display: none !important;
+      }
+      #PanelUI-button {
+        order: 1 !important;
+        margin-left: auto !important;
+        margin-right: 10px;
+      }
+      #unified-extensions-button {
+        display: none !important;
+        /*Hide as it is in the 3 dot menu */
+      }
+    }
+  }
+
+  /* Try to make bookmark bar work... */
+  #zen-appcontent-navbar-container {
+    opacity: 1 !important;
+    height: 32px !important;
+    #PersonalToolbar {
+      opacity: 1 !important;
+    }
+    .titlebar-buttonbox-container {
+      opacity: 1 !important;
+    }
+  }
+
+  /* Hide things that break the browser */
+  #toolbar-context-customize {
+    display: none !important;
+  }
+}
