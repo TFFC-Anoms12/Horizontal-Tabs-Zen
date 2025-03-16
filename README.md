@@ -6,3 +6,4 @@ Horizontal tabs for zen browser
 * Paste the CSS below in your userChrome.css file. Nothing will happen immediately; you must do the next step to make things work correctly.
 * go to about.config in zen and toggle zen.tabs.vertical to false.
 * Enjoy your horizontal tabs in Zen! If you find an issue, comment it here until I make a GitHub repository.
+![Screenshot 2025-03-15 165404](https://github.com/user-attachments/assets/09bf9fb6-b2e4-481b-8022-4425884423c0)
