@@ -1,5 +1,23 @@
+:root {
+  --user-color-primary: #3c3c3c !important;
+  --user-color-secondary: #1f2020 !important;
+  --user-color-tertiary: #1f1f1f !important;
+  @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
+    --zen-main-browser-background: var(--user-color-primary) !important;
+  }
+}
+menupopup, panel {
+  --panel-background: var(--user-color-tertiary) !important;
+
+}
+
+* {
+  border: none !important;
+}
+
 @media not (-moz-bool-pref: "zen.tabs.vertical") {
   .zen-workspace-tabs-section {
+    height: 85% !important;
     flex-direction: row !important;
   }
 
@@ -11,6 +29,9 @@
     display: flex !important;
   }
   #navigator-toolbox {
+    @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
+      background: var(--user-color-secondary) !important;
+    }
     flex-direction: column !important;
     padding-bottom: 0 !important;
     #nav-bar {
@@ -46,20 +67,32 @@
     display: none !important;
   }
 
-  /*tmp*/
-
   tab {
+    overflow: visible !important;
     display: flex !important;
     visibility: visible !important;
     height: 36px !important;
     min-width: 36px !important;
-    max-width: 150px !important;
+    max-width: 225px !important;
     width: auto;
     container-name: tab !important;
     container-type: inline-size !important; /* Ensures container queries work */
+    transition: all 0.5s ease-out !important;
 
-    &[selected] {
-      flex: 1 1 150px !important;
+    &:not([zen-essential]) {
+      &[selected] {
+        flex: 1 1 150px !important;
+        .tab-background {
+          overflow: visible !important;
+          @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
+            background-color: var(--user-color-primary) !important;
+            border-radius: var(--tab-border-radius) var(--tab-border-radius) 0px
+              0px !important;
+            padding-top: 2px !important;
+            margin-bottom: 0 !important;
+         }
+        }
+      }
     }
 
     .tab-content {
@@ -154,6 +187,9 @@
     .tab-stack {
       height: 36px !important;
       .tab-background {
+        @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
+          background: transparent !important;
+        }
         height: 36px !important;
         padding: 0 !important;
         margin: 0 !important;
@@ -166,17 +202,11 @@
         }
       }
     }
-    &:last-of-type {
-      margin-right: 4px !important;
-      &:after {
-        content: "";
-        background-color: #888;
-        height: 90%;
-        width: 1px;
-        border-radius: 360px;
-        position: absolute;
-        top: 5% !important;
-        right: -4px;
+    @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
+      &[selected] {
+        box-shadow: none !important;
+        background-color: var(--user-color-primary) !important;
+        border-radius: var(--tab-border-radius) var(--tab-border-radius) 0 0 !important;
       }
     }
   }
@@ -192,7 +222,7 @@
       border-radius: 360px;
       position: absolute;
       top: 5% !important;
-      right: -4px;
+      right: -3px;
     }
   }
 
@@ -211,12 +241,14 @@
     margin-left: 50px !important;
     #urlbar:not([breakout-extend]) {
       #urlbar-background {
+        background-color: var(--user-color-secondary) !important;
         border-radius: 360px !important;
       }
     }
   }
 
   #zen-sidebar-top-buttons {
+    z-index: -1 !important;
     display: block !important;
     width: 100vw !important;
     margin-top: 0 !important;
@@ -225,6 +257,12 @@
     position: relative !important;
     top: 33% !important;
     #zen-sidebar-top-buttons-customization-target {
+      @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
+        background-color: var(--user-color-primary) !important;
+      }
+      position: relative !important;
+      top: -30px !important;
+      height: 60px !important;
       width: 100vw !important;
       display: flex !important;
       justify-content: flex-start !important;
@@ -243,8 +281,15 @@
     }
   }
 
+  #zen-appcontent-wrapper {
+    z-index: 99999 !important;
+  }
   /* Try to make bookmark bar work... */
   #zen-appcontent-navbar-container {
+    z-index: 999999 !important;
+    @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
+      background-color: var(--user-color-primary) !important;
+    }
     opacity: 1 !important;
     height: 32px !important;
     #PersonalToolbar {
@@ -259,7 +304,7 @@
   #toolbar-context-customize {
     display: none !important;
   }
-    /* Fix Media Player */
+  /* Fix Media Player */
   #zen-media-controls-toolbar {
     position: absolute !important;
     transform-origin: right center; /* Anchor to the right */
@@ -267,7 +312,6 @@
     bottom: 1% !important;
     toolbaritem {
       width: 170px !important;
-      #zen-media-main-vbox
     }
   }
 }
