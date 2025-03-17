@@ -259,4 +259,15 @@
   #toolbar-context-customize {
     display: none !important;
   }
+    /* Fix Media Player */
+  #zen-media-controls-toolbar {
+    position: absolute !important;
+    transform-origin: right center; /* Anchor to the right */
+    right: 19% !important;
+    bottom: 1% !important;
+    toolbaritem {
+      width: 170px !important;
+      #zen-media-main-vbox
+    }
+  }
 }
