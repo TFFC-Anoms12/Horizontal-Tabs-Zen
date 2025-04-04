@@ -1,14 +1,7 @@
-/* Horizontial Tabs */
-/* https://github.com/TFFC-Anoms12/Horizontal-Tabs-Zen */
-/* V1.2.1 */
-
 :root {
-  --user-color-primary: #3c3c3c !important;
-  --user-color-secondary: #1f2020 !important;
+  --user-color-primary: var(--zen-primary-color) !important;
+  --user-color-secondary: #ffffff15 !important;
   --user-color-tertiary: #1f1f1f !important;
-  @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
-    --zen-main-browser-background: var(--user-color-primary) !important;
-  }
 }
 
 
@@ -30,14 +23,9 @@
     min-width: 50px !important;
     display: flex !important;
     overflow-y: scroll !important;
-@media not (-moz-bool-pref: "zen.workspaces.show-workspace-indicator") {
-  display: none !important;
-    }
   }
   #navigator-toolbox {
-    @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
-      background: var(--user-color-secondary) !important;
-    }
+     margin-bottom: 30px !important;
     flex-direction: column !important;
     padding-bottom: 0 !important;
     #nav-bar {
@@ -45,6 +33,7 @@
       margin-top: 7px !important;
     }
     #tabbrowser-tabs {
+      margin-right: 140px !important;
       position: relative !important;
       display: flex !important;
       #zen-tabs-wrapper {
@@ -89,15 +78,6 @@
         flex: 1 1 150px !important;
         .tab-background {
           overflow: visible !important;
-          @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
-            background-color: var(--user-color-primary) !important;
-            border-radius: var(--tab-border-radius) var(--tab-border-radius) 0px
-              0px !important;
-            padding-top: 2px !important;
-            margin-bottom: 0 !important;
-            box-shadow: none !important;
-
-         }
         }
       }
     }
@@ -118,16 +98,6 @@
       margin-right: 5px !important;
     }
     &:not([selected]) {
-      
-      &:after {
-        content: "";
-        position: absolute;
-        background: var(--user-color-primary);
-        height: 60%;
-        width: 2px;
-        transform: translateX(-1px) !important;
-        top: 20%;
-      }
     }
   }
 
@@ -208,9 +178,6 @@
     .tab-stack {
       height: 36px !important;
       .tab-background {
-        @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
-          background: transparent !important;
-        }
         height: 36px !important;
         padding: 0 !important;
         margin: 0 !important;
@@ -226,29 +193,8 @@
         }
       }
     }
-    @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
-      &[selected] {
-        box-shadow: none !important;
-        background-color: var(--user-color-primary) !important;
-        border-radius: var(--tab-border-radius) var(--tab-border-radius) 0 0 !important;
-      }
-    }
   }
-  /* Add pinned tab seporator */
-  .tabbrowser-tab[pinned="true"]:not([zen-essential]) {
-    overflow: visible !important;
-    margin-right: 4px !important;
-    &:after {
-      content: "";
-      background-color: #888;
-      height: 90%;
-      width: 1px;
-      border-radius: 360px;
-      position: absolute;
-      top: 5% !important;
-      right: -4px;
-    }
-  }
+
 
   /*Hide closed tabs... */
   tab:not([fadein]) {
@@ -261,7 +207,7 @@
 
   /* URL bar positioning */
   #nav-bar {
-    width: 87% !important;
+    width: calc(100% - 96px - 32px) !important;
     margin-left: 50px !important;
     #urlbar:not([breakout-extend]) {
       #urlbar-background {
@@ -281,9 +227,6 @@
     position: relative !important;
     top: 33% !important;
     #zen-sidebar-top-buttons-customization-target {
-      @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
-        background-color: var(--user-color-primary) !important;
-      }
       position: relative !important;
       top: -30px !important;
       height: 60px !important;
@@ -304,19 +247,39 @@
       }
     }
   }
+  #zen-sidebar-bottom-buttons {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin-top: 90px !important;
+    margin-right: 18px !important;
+    width: 100px !important;
+  }
 
   #zen-appcontent-wrapper {
     z-index: 99999 !important;
   }
   /* Try to make bookmark bar work... */
   #zen-appcontent-navbar-container {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    margin-top: 7px !important;
     z-index: 999999 !important;
-    @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
-      background-color: var(--user-color-primary) !important;
-    }
     opacity: 1 !important;
     height: 32px !important;
-    #PersonalToolbar {
+    overflow: visible !important;
+    pointer-events: auto !important;
+    #personal-bookmarks {
+      pointer-events: auto !important;
+      position: absolute !important;
+      right: 0 !important;
+      top: 0 !important;
+      width: calc(100vw - 118px) !important;
+      margin-right: 118px !important;
+      margin-top: 85px !important;
+    }
+     #PersonalToolbar {
       opacity: 1 !important;
     }
     .titlebar-buttonbox-container {
