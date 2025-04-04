@@ -26,6 +26,9 @@
     min-width: 50px !important;
     display: flex !important;
     overflow-y: scroll !important;
+@media not (-moz-bool-pref: "zen.workspaces.show-workspace-indicator") {
+  display: none !important;
+    }
   }
   #navigator-toolbox {
     @media (-moz-bool-pref: "horizontal.tabs.theme.chrome") {
