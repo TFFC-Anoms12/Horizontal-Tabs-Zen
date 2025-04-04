@@ -271,7 +271,7 @@
     overflow: visible !important;
     pointer-events: auto !important;
     #personal-bookmarks {
-      pointer-events: auto !important;
+      pointer-events: auto !important; 
       position: absolute !important;
       right: 0 !important;
       top: 0 !important;
