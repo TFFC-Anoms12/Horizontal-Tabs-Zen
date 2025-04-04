@@ -13,6 +13,4 @@ A rice for horizontial tab on the [Zen Browser](https://zen-browser.app/)
 
 ## Showcase
 * Default Style
-![Screenshot 2025-03-15 165404](https://github.com/user-attachments/assets/09bf9fb6-b2e4-481b-8022-4425884423c0)
-* Chrome UI with [Zen Minimal Exit Menu](https://zen-browser.app/mods/6cd4bca9-f17d-4461-b554-844d69a4887c/)
-![image](https://github.com/user-attachments/assets/53dd1421-eecd-4575-8c99-b30833e1d71a)
+![image](https://github.com/user-attachments/assets/0859b501-705e-4ef5-9d67-5559bc58c2e8)
