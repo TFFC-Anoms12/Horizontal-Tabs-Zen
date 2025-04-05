@@ -15,8 +15,11 @@
 
 @media not (-moz-bool-pref: "zen.tabs.vertical") {
   .zen-workspace-tabs-section {
-    height: 85% !important;
+    position: relative !important;  
+    margin-top: 0 !important;
+    height: 100% !important;
     flex-direction: row !important;
+   max-width: 100% !important;
   }
 
   #zen-sidebar-top-buttons {
@@ -40,12 +43,20 @@
       margin-right: 140px !important;
       position: relative !important;
       display: flex !important;
+      flex-direction: column !important;
       #zen-tabs-wrapper {
+        overflow: scroll !important;
+        display: flex !important;
+        flex-direction: column !important;
         max-height: 42px !important;
         height: 40px !important;
         width: 100% !important;
         #zen-browser-tabs-container {
           height: 40px !important;
+          #tabbrowser-arrowscrollbox {
+            display: flex !important;
+            flex-direction: column !important;
+          }
         }
       }
     }
@@ -54,7 +65,9 @@
   #zen-browser-tabs-container {
     display: flex !important;
     #vertical-pinned-tabs-container {
-      display: none !important;
+      display: flex !important;
+      width: min-content !important;
+      max-width: min-content !important;
     }
   }
 
@@ -66,11 +79,12 @@
     display: none !important;
   }
 
-  tab {
+  .tabbrowser-tab {
     overflow: visible !important;
     display: flex !important;
     visibility: visible !important;
     height: 36px !important;
+    max-height: 36px !important;
     min-width: 36px !important;
     max-width: 225px !important;
     width: auto;
@@ -85,11 +99,9 @@
         }
       }
     }
-
     .tab-content {
       display: flex !important;
-    }
-
+    
     .tab-close-button {
       min-width: 24px !important;
       height: 24px !important;
@@ -97,11 +109,15 @@
       margin-right: -2px !important;
       display: block !important;
     }
-
     .tab-icon-image {
       margin-right: 5px !important;
     }
-    &:not([selected]) {
+    }
+    &:not([zen-essential])[pinned] {
+      width: 100% !important;
+      .tab-content {
+        margin-left: 2px !important;
+      }
     }
   }
 
@@ -162,9 +178,7 @@
 
   @media not (-moz-bool-pref: "zen.tabs.vertical") {
     #zen-essentials-container {
-      height: 36px !important;
-      max-width: 36px !important;
-      flex: 1 1 36px !important;
+      height: 40px !important;
     }
   }
 
@@ -311,3 +325,19 @@
     }
   }
 }
+
+/* Disable pinning tabs until we find recovery for them 
+#context_pinTab {
+  display: none !important;
+}
+*/
+/* Show alltabs-button */
+#alltabs-button {
+  display: flex !important;
+}
+
+#tabbrowser-arrowscrollbox-periphery {
+  height: 36px !important;
+}
+
+
