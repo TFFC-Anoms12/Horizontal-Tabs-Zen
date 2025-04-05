@@ -1,3 +1,7 @@
+/* Horizontal Tabs */
+/* https://github.com/TFFC-Anoms12/Horizontal-Tabs-Zen *.
+/* V1.4.1 */
+
 :root {
   --user-color-primary: var(--zen-primary-color) !important;
   --user-color-secondary: #ffffff15 !important;
@@ -252,8 +256,13 @@
     top: 0 !important;
     right: 0 !important;
     margin-top: 90px !important;
-    margin-right: 18px !important;
-    width: 100px !important;
+    margin-right: 15px !important;
+    max-width: 100px !important;
+    #zen-workspaces-button {
+    @media not (-moz-bool-pref: "zen.workspaces.show-workspace-indicator") {
+    display: none !important;
+  }
+    }
   }
 
   #zen-appcontent-wrapper {
@@ -275,8 +284,8 @@
       position: absolute !important;
       right: 0 !important;
       top: 0 !important;
-      width: calc(100vw - 118px) !important;
-      margin-right: 118px !important;
+      width: calc(100vw - 115px) !important;
+      margin-right: 115px !important;
       margin-top: 85px !important;
     }
      #PersonalToolbar {
