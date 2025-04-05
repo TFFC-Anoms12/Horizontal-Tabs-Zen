@@ -6,6 +6,8 @@ A rice for horizontial tab on the [Zen Browser](https://zen-browser.app/)
 * Paste the CSS below in your `userChrome.css` file. Nothing will happen immediately; you must do the next step to make things work correctly.
 * go to `about:config` in zen and toggle `zen.tabs.vertical` to false.
 * Enjoy your horizontal tabs in Zen! If you find an issue, comment it here until I make a GitHub repository.
+## Q & A
+Why do my pinned tabs look weird after I pin them: Restart the browser, it is an issue with how the pinned tab is placed, it only gets initialzed in the right space after a restart.
 ## UI Options
 **Not everyone is a fan of a floating UI so this repo has a couple of options (More will come if _you_ make a feature request for it) that will satisfy your UI neeeds while keeping the amazing Zen featre set**
 
